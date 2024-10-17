@@ -176,8 +176,3 @@ export class PlayerService {
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
----
-
-This **README.md** provides a complete overview of the **frontend project** built with Angular and CoreUI, including **installation instructions**, **API integration details**, and **future enhancements**. Let me know if further customization is needed!
->>>>>>> 605ec54e45957a94bae83e5331efa8ce34264b96
