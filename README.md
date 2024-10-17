@@ -1,222 +1,183 @@
-[![@coreui angular](https://img.shields.io/badge/@coreui%20-angular-lightgrey.svg?style=flat-square)](https://github.com/coreui/angular)
-[![npm-coreui-angular][npm-coreui-angular-badge]][npm-coreui-angular]
-[![NPM downloads][npm-coreui-angular-download]][npm-coreui-angular]  
-[![@coreui coreui](https://img.shields.io/badge/@coreui%20-coreui-lightgrey.svg?style=flat-square)](https://github.com/coreui/coreui)
-[![npm package][npm-coreui-badge]][npm-coreui]
-[![NPM downloads][npm-coreui-download]][npm-coreui]  
-![angular](https://img.shields.io/badge/angular-^16.2.0-lightgrey.svg?style=flat-square&logo=angular)
+--
 
-[npm-coreui-angular]: https://www.npmjs.com/package/@coreui/angular
-[npm-coreui-angular-badge]: https://img.shields.io/npm/v/@coreui/angular.png?style=flat-square
-[npm-coreui-angular-badge-next]: https://img.shields.io/npm/v/@coreui/angular/next?style=flat-square&color=red
-[npm-coreui-angular-download]: https://img.shields.io/npm/dm/@coreui/angular.svg?style=flat-square
-[npm-coreui]: https://www.npmjs.com/package/@coreui/coreui
-[npm-coreui-badge]: https://img.shields.io/npm/v/@coreui/coreui.png?style=flat-square
-[npm-coreui-download]: https://img.shields.io/npm/dm/@coreui/coreui.svg?style=flat-square
+# Intelligent Cricket Team Selection System (ICTSS) - Frontend
 
-# CoreUI Free Admin Dashboard Template for Angular 16
-
-CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of redundant components, so the app is light enough to offer ultimate user experience. This means mobile devices also, where the navigation is just as easy and intuitive as on a desktop or laptop. The CoreUI Layout API lets you customize your project for almost any device – be it Mobile, Web or WebApp – CoreUI covers them all!
-
-- [CoreUI Angular Admin Dashboard Template & UI Components Library](https://coreui.io/angular)  
-- [CoreUI Angular Demo](https://coreui.io/angular/demo/4.3/free/)
-- [CoreUI Angular Docs](https://coreui.io/angular/docs/)  
+The **Intelligent Cricket Team Selection System (ICTSS) - Frontend** is a web-based interface built with **Angular** and the **CoreUI template**. This frontend application communicates with the backend API to provide users with a seamless experience for managing cricket teams, viewing performance reports, and generating recommendations.
 
 ## Table of Contents
-
-* [Versions](#versions)
-* [CoreUI Pro](#coreui-pro)
-* [Quick Start](#quick-start)
-* [Installation](#installation)
-* [Basic usage](#basic-usage)
-* [What's included](#whats-included)
-* [Documentation](#documentation)
-* [Versioning](#versioning)
-* [Creators](#creators)
-* [Community](#community)
-* [Copyright and License](#copyright-and-license)
-
-## Versions
-
-* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
-* [CoreUI Free Angular Admin Template](https://github.com/coreui/coreui-free-angular-admin-template)
-* [CoreUI Free React.js Admin Template](https://github.com/coreui/coreui-free-react-admin-template)
-* [CoreUI Free Vue.js Admin Template](https://github.com/coreui/coreui-free-vue-admin-template)
-
-## CoreUI Pro
-
-**Only customers with [Enterpise Membership Plan](https://coreui.io/pro/#buy) have access to private GitHub CoreUI Pro repository.**
-
-* 💪  [CoreUI Pro Angular Admin Template](https://coreui.io/product/angular-dashboard-template/)
-* 💪  [CoreUI Pro Bootstrap Admin Template](https://coreui.io/product/bootstrap-dashboard-template/)
-* 💪  [CoreUI Pro React Admin Template](https://coreui.io/product/react-dashboard-template/)
-* 💪  [CoreUI Pro Next.js Admin Template](https://coreui.io/product/next-js-dashboard-template/)
-* 💪  [CoreUI Pro Vue Admin Template](https://coreui.io/product/vue-dashboard-template/)
-
-## Quick Start
-
-- [Download the latest release](https://github.com/coreui/coreui-free-angular-admin-template/)
-- Clone the repo: `git clone https://github.com/coreui/coreui-free-angular-admin-template.git`
-
-#### <i>Prerequisites</i>
-Before you begin, make sure your development environment includes `Node.js®` and an `npm` package manager.
-
-###### Node.js
-[**Angular 16**](https://angular.io/guide/what-is-angular) requires `Node.js` LTS version `^16.14` or `^18.10`.
-
-- To check your version, run `node -v` in a terminal/console window.
-- To get `Node.js`, go to [nodejs.org](https://nodejs.org/).
-
-###### Angular CLI
-Install the Angular CLI globally using a terminal/console window.
-```bash
-npm install -g @angular/cli
-```
-
-### Installation
-
-``` bash
-$ npm install
-$ npm update
-```
-
-### Basic usage
-
-``` bash
-# dev server with hot reload at http://localhost:4200
-$ npm start
-```
-
-Navigate to [http://localhost:4200](http://localhost:4200). The app will automatically reload if you change any of the source files.
-
-#### Build
-
-Run `build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-```bash
-# build for production with minification
-$ npm run build
-```
-## What's included
-
-Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
-
-```
-coreui-free-angular-admin-template
-├── src/                         # project root
-│   ├── app/                     # main app directory
-|   │   ├── containers/          # layout containers
-|   |   │   └── default-layout/  # layout containers
-|   |   |       └── _nav.js      # sidebar navigation config
-|   │   ├── icons/               # icons set for the app
-|   │   └── views/               # application views
-│   ├── assets/                  # images, icons, etc.
-│   ├── components/              # components for demo only
-│   ├── scss/                    # scss styles
-│   └── index.html               # html template
-│
-├── angular.json
-├── README.md
-└── package.json
-```
-
-## Documentation
-
-The documentation for the CoreUI Admin Template is hosted at our website [CoreUI for Angular](https://coreui.io/angular/)
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Folder Structure](#folder-structure)
+- [API Integration](#api-integration)
+- [Future Enhancements](#future-enhancements)
 
 ---
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+## Project Overview
 
-## Versioning
+This project provides the **user interface** for the Intelligent Cricket Team Selection System (ICTSS). Users can log in, manage players, create teams, and generate performance reports via this Angular-based application. The **CoreUI template** ensures a clean, modern design with built-in components for dashboards, forms, and data visualizations.
 
-For transparency into our release cycle and in striving to maintain backward compatibility, CoreUI Free Admin Template is maintained under [the Semantic Versioning guidelines](http://semver.org/).
+The frontend interacts with the **backend API** built with Spring Boot to display data and generate insights in real-time.
 
-See [the Releases section of our project](https://github.com/coreui/coreui-free-angular-admin-template/releases) for changelogs for each release version.
+---
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- **User Authentication**: Secure login and role-based access control.
+- **Dashboard**: Overview of players, teams, and reports.
+- **Player Management**: Add, update, delete, and view players.
+- **Team Selection**: Create teams and view recommendations from the backend.
+- **Performance Reports**: Generate and view player performance summaries.
+- **Data Visualization**: Graphs and charts for reports and analytics.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
 
-## Build
+- **Angular** - Frontend framework for building the UI.
+- **CoreUI** - Angular admin template for the interface.
+- **TypeScript** - Programming language for Angular components.
+- **HTML5 & SCSS** - Markup and styling.
+- **Bootstrap** - CSS framework for responsive design.
+- **Angular HTTP Client** - For API communication with the backend.
+- **Chart.js** - For data visualization.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Requirements
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Before you start, ensure you have the following installed:
 
-## Running end-to-end tests
+- **Node.js** (v14 or higher) - [Download here](https://nodejs.org/)
+- **Angular CLI** (v12 or higher) - Install via `npm install -g @angular/cli`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 1. Clone the Repository
 
-## Creators
+```bash
+git clone https://github.com/your-repository/ictss-frontend.git
+cd ictss-frontend
+```
 
-**Łukasz Holeczek**
-* <https://twitter.com/lukaszholeczek>
-* <https://github.com/mrholek>
-* <https://github.com/coreui>
+### 2. Install Dependencies
 
-**CoreUI team**
-* https://github.com/orgs/coreui/people
+Run the following command to install the required dependencies:
 
-## Community
+```bash
+npm install
+```
 
-Get updates on CoreUI's development and chat with the project maintainers and community members.
+---
 
-- Follow [@core_ui on Twitter](https://twitter.com/core_ui).
-- Read and subscribe to [CoreUI Blog](https://coreui.io/blog/).
+## Running the Application
 
-## Support CoreUI Development
+1. Start the Angular development server:
 
-CoreUI is an MIT-licensed open source project and is completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by buying the [CoreUI PRO](https://coreui.io/pricing/) or by becoming a sponsor via [Open Collective](https://opencollective.com/coreui/).
+    ```bash
+    ng serve
+    ```
 
-<!--- StartOpenCollectiveBackers -->
+2. Open the frontend in your browser at:
 
-### Platinum Sponsors
+    ```bash
+    http://localhost:4200
+    ```
 
-Support this project by [becoming a Platinum Sponsor](https://opencollective.com/coreui/contribute/platinum-sponsor-40959/). A large company logo will be added here with a link to your website.
+---
 
-<a href="https://opencollective.com/coreui/contribute/platinum-sponsor-40959/checkout"><img src="https://opencollective.com/coreui/tiers/platinum-sponsor/0/avatar.svg?avatarHeight=100"></a>
+## Folder Structure
 
-### Gold Sponsors
+```bash
+/src
+  /app
+    /auth                 # Authentication module (login, logout)
+    /dashboard            # Main dashboard view
+    /players              # Player management module
+    /teams                # Team management module
+    /reports              # Reports and analytics
+    /services             # Services for API integration
+  /assets                 # Static assets (images, styles)
+  /environments           # Configuration for different environments
+  index.html              # Main HTML entry point
+  styles.scss             # Global styles
+angular.json              # Angular configuration
+```
 
-Support this project by [becoming a Gold Sponsor](https://opencollective.com/coreui/contribute/gold-sponsor-40960/). A big company logo will be added here with a link to your website.
+---
 
-<a href="https://opencollective.com/coreui/contribute/gold-sponsor-40960/checkout"><img src="https://opencollective.com/coreui/tiers/gold-sponsor/0/avatar.svg?avatarHeight=100"></a> 
+## API Integration
 
-### Silver Sponsors
+The frontend interacts with the **ICTSS backend** through the following APIs:
 
-Support this project by [becoming a Silver Sponsor](https://opencollective.com/coreui/contribute/silver-sponsor-40967/). A medium company logo will be added here with a link to your website.
+| API Endpoint                       | Method | Description                              |
+|------------------------------------|--------|------------------------------------------|
+| `/auth/login`                      | POST   | User login                               |
+| `/players`                         | GET    | List all players                         |
+| `/players`                         | POST   | Add a new player                         |
+| `/players/{id}`                    | PUT    | Update an existing player                |
+| `/players/{id}`                    | DELETE | Delete a player                          |
+| `/teams`                           | POST   | Create a new team                        |
+| `/teams/recommend`                 | GET    | Get recommended team based on data       |
+| `/reports/performance`             | GET    | Generate performance report for players |
 
-<a href="https://opencollective.com/coreui/contribute/silver-sponsor-40967/checkout"><img src="https://opencollective.com/coreui/tiers/gold-sponsor/0/avatar.svg?avatarHeight=100"></a>
+### Example Service for API Calls
 
-### Bronze Sponsors
+Here’s an example of a **PlayerService** for making API calls to the backend:
 
-Support this project by [becoming a Bronze Sponsor](https://opencollective.com/coreui/contribute/bronze-sponsor-40966/). The company avatar will show up here with a link to your OpenCollective Profile.
+```typescript
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Player } from '../models/player.model';
 
-<a href="https://opencollective.com/coreui/contribute/bronze-sponsor-40966/checkout"><img src="https://opencollective.com/coreui/tiers/bronze-sponsor/0/avatar.svg?avatarHeight=100"></a> 
+@Injectable({
+  providedIn: 'root'
+})
+export class PlayerService {
+  private apiUrl = 'http://localhost:8080/api/players';
 
-### Backers
+  constructor(private http: HttpClient) {}
 
-Thanks to all the backers and sponsors! Support this project by [becoming a backer](https://opencollective.com/coreui/contribute/backer-40965/).
+  getAllPlayers(): Observable<Player[]> {
+    return this.http.get<Player[]>(`${this.apiUrl}/all`);
+  }
 
-<a href="https://opencollective.com/coreui/contribute/backer-40965/checkout" target="_blank" rel="noopener"><img src="https://opencollective.com/coreui/backers.svg?width=890"></a>
+  addPlayer(player: Player): Observable<any> {
+    return this.http.post(`${this.apiUrl}/add`, player);
+  }
 
-<!--- EndOpenCollectiveBackers -->
+  updatePlayer(id: number, player: Player): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, player);
+  }
 
-## Copyright and License
+  deletePlayer(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete/${id}`);
+  }
+}
+```
 
-copyright 2017-2023 creativeLabs Łukasz Holeczek.   
+---
 
- 
-Code released under [the MIT license](https://github.com/coreui/coreui-free-react-admin-template/blob/master/LICENSE).
-There is only one limitation you can't re-distribute the CoreUI as stock. You can’t do this if you modify the CoreUI. In the past, we faced some problems with persons who tried to sell CoreUI based templates.
+## Future Enhancements
+
+- **Role-Based Dashboards**: Customize dashboards based on user roles (Admin, Coach, Analyst).
+- **Live Data Integration**: Add live match data to provide real-time insights.
+- **Enhanced Charts and Visualizations**: Use more complex visualizations for team and player performance.
+- **Progressive Web App (PWA)**: Convert the frontend into a PWA for mobile compatibility.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+---
+
+This **README.md** provides a complete overview of the **frontend project** built with Angular and CoreUI, including **installation instructions**, **API integration details**, and **future enhancements**. Let me know if further customization is needed!
