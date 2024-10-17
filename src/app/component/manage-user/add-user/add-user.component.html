@@ -1,0 +1,229 @@
+<div class="container-fluid mb-4">
+
+    <!--    confirmation message-->
+    <div>
+        <confirmation-model #addUserModel modelTitle="{{selectedUser.name ? 'Update' : 'Create'}} User"
+            modelBody="Do you want to {{selectedUser.name ? 'update' : 'create'}} this User? {{selectedUser.name ? selectedUser.name : ''}}"
+            (btnConfirmationEvent)="btnuserSubmit()">
+        </confirmation-model>
+    </div>
+    <!--    delete message-->
+    <div>
+        <confirmation-model #deleteUserModel modelTitle="Delete User"
+            modelBody="Do you want to delete this User : {{deletedUser.name}}"
+            (btnConfirmationEvent)="deletedUser()">
+        </confirmation-model>
+    </div>
+    <div class="mb-3 ">
+        <h3 class="text-primary text-right">Manage User</h3>
+    </div>
+    <div class="mt-3">
+        <c-card>
+            <c-card>
+                <c-card-header>
+                    <h4 class="p-o m-0 my-2 text-primary">
+                        {{selectedUser.id ? 'Update' : 'Create'}} User
+                        <c-badge *ngIf="!selectedUser.id" color="info"> &nbsp;New</c-badge>
+                        {{selectedUser.id ? '(' + selectedUser.name + ')' : ''}}
+                    </h4>
+                </c-card-header>
+
+                <div class="container-fluid mt-4 mb-2 font-size-100">
+                    <div class="container-fluid">
+                        <form [formGroup]="userForm">
+                            <div class="container-fluid m-2">
+                                <div class="row">
+                                    <!-- User Name -->
+                                    <div class="col-lg-6 ">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Name</mat-label>
+                                            <input formControlName="name" matInput required type="text"
+                                                autocomplete="off">
+                                        </mat-form-field>
+                                        <validation-message
+                                            [abstractController]="getAbstractController(userForm,'name')"
+                                            placeHolder="Name">
+                                        </validation-message>
+                                    </div>
+
+                                    <!-- Contact -->
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Category</mat-label>
+                                            <input formControlName="contact" matInput required type="text"
+                                                autocomplete="off">
+                                        </mat-form-field>
+                                        <validation-message
+                                            [abstractController]="getAbstractController(userForm,'contact')"
+                                            placeHolder="Contact">
+                                        </validation-message>
+                                    </div>      
+                                    
+                                    <!-- Address -->
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Address</mat-label>
+                                            <input formControlName="address" matInput required type="text"
+                                                autocomplete="off">
+                                        </mat-form-field>
+                                        <validation-message
+                                            [abstractController]="getAbstractController(userForm,'address')"
+                                            placeHolder="Address">
+                                        </validation-message>
+                                    </div>
+
+                                    <!-- Country -->
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Country</mat-label>
+                                            <input formControlName="country" matInput required type="text"
+                                                autocomplete="off">
+                                        </mat-form-field>
+                                        <validation-message
+                                            [abstractController]="getAbstractController(userForm,'country')"
+                                            placeHolder="country">
+                                        </validation-message>
+                                    </div>
+
+                                    <!-- Role -->
+                                    <div class="col-lg-6">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Role</mat-label>
+                                            <input formControlName="role" matInput required type="text"
+                                                autocomplete="off">
+                                        </mat-form-field>
+                                        <validation-message
+                                            [abstractController]="getAbstractController(userForm,'role')"
+                                            placeHolder="Role">
+                                        </validation-message>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="col-lg-6">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Role</mat-label>
+                                            <input formControlName="email" matInput required type="text"
+                                                autocomplete="off">
+                                        </mat-form-field>
+                                        <validation-message
+                                            [abstractController]="getAbstractController(userForm,'email')"
+                                            placeHolder="Email">
+                                        </validation-message>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row text-center py-2">
+                            <div class="col-6 ">
+                                <button (click)="btnCancel()" class="btn btn-danger text-white col-12">Cancel
+                                </button>
+                            </div>
+
+                            <!-- Save, Buttons -->
+                            <div class="col-6" *ngIf="!selectedUser.id; else elseBlock">
+                                <button [disabled]="!userForm.valid"
+                                    (click)="addUserModel.visible= checkAndTouchFormValidation();"
+                                    class="btn btn-success text-white col-12">
+                                    Save
+                                </button>
+                            </div>
+
+                            <!-- Update Button -->
+                            <ng-template #elseBlock>
+                                <div class="col-6">
+                                    <button [disabled]="!userForm.valid"
+                                        (click)="addUserModel.visible= checkAndTouchFormValidation();"
+                                        class="btn btn-warning text-white col-12">
+                                        Update
+                                    </button>
+
+                                </div>
+                            </ng-template>
+
+                        </div>
+                    </div>
+                </div>
+            </c-card>
+        </c-card>
+    </div>
+    <div class="mt-3">
+
+        <c-card>
+            <c-card-header>
+                <h4 class="p-o m-0 my-2 text-primary">User Details </h4>
+            </c-card-header>
+
+            <c-card-body>
+                <div class="container-fluid">
+                    <div class="mat-elevation-z2 ">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead style="font-size: 14px">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Amount </th>
+                                    <th scope="col">Date</th>
+                                </tr>
+
+                                <tr>
+                                    <th colspan="5"></th>
+
+                                </tr>
+
+                            </thead>
+                            <tbody *ngIf="users && users.length > 0; else elseTableData">
+
+                                <tr *ngFor="let users of users.slice(dataSliceStart, dataSliceEnd);" class="pt-5">
+                                    <td>
+                                        <a class="text-primary" [routerLink]="[ userInfoViewPath, users.id]"
+                                            style="text-decoration:none;" title="{{users?.id}}">
+                                            {{users.id}}
+                                        </a>
+                                    </td>
+                                    <td>{{users.name}} </td>
+                                    <td>{{users.category}} </td>
+                                    <td>{{users.amount}} </td>
+                                    <td>{{users.date}} </td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <button class="btn btn-success btn-sm text-white mt-1"
+                                                title="Update : {{users.name}}"
+                                                (click)="tbuserSelectUpdatingData(users); scrollTop()">
+                                                <i class=" fa fa-pencil" aria-hidden="true"></i>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-sm text-white mt-1"
+                                                title="Delete : {{users.name}}"
+                                                (click)="deleteUserModel.visible=true;deleteselectedUser=users">
+                                                <i class=" fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            <ng-template #elseTableData>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="8">No records to display.</td>
+                                    </tr>
+                                </tbody>
+                            </ng-template>
+
+                        </table>
+                    </div>
+                    <div class="mt-2" *ngIf="users && users.length > 0">
+                        <table-pagination [dataArray]="users" 
+                        noOfRecordsPerPage="{{noOfRecordsPerPage}}"
+                            dataSliceStart="{{dataSliceStart}}" dataSliceEnd="{{dataSliceEnd}}"
+                            (sliceArray)="sliceArray($event)">
+                        </table-pagination>
+                    </div>
+                </div>
+            </c-card-body>
+        </c-card>
+    </div>
+</div>
