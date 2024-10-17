@@ -1,5 +1,3 @@
---
-
 # Intelligent Cricket Team Selection System (ICTSS) - Frontend
 
 The **Intelligent Cricket Team Selection System (ICTSS) - Frontend** is a web-based interface built with **Angular** and the **CoreUI template**. This frontend application communicates with the backend API to provide users with a seamless experience for managing cricket teams, viewing performance reports, and generating recommendations.
