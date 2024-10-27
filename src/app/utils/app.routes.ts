@@ -1,5 +1,3 @@
-import { AddExpenceComponent } from "../component/manage-expence/add-expence/add-expence.component";
-import { ViewExpenceComponent } from "../component/manage-expence/view-expence/view-expence.component";
 import { AddPlayerComponent } from "../component/manage-player/add-player/add-player.component";
 import { ViewPlayerComponent } from "../component/manage-player/view-player/view-player.component";
 import { AddPlaygroundComponent } from "../component/manage-playground/add-playground/add-playground.component";
@@ -8,7 +6,6 @@ import { AddTeamComponent } from "../component/manage-team/add-team/add-team.com
 import { ViewTeamComponent } from "../component/manage-team/view-team/view-team.component";
 import { AddUserComponent } from "../component/manage-user/add-user/add-user.component";
 import { ViewUserComponent } from "../component/manage-user/view-user/view-user.component";
-import { ExpenseResolver } from "../resolver/expensse.resolver";
 
 // Application Routes of front end ===================
 export const APPLICATION_ROUTES = {
