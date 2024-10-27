@@ -3,8 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DefaultLayoutComponent } from './containers';
 import { APPLICATION_ROUTES } from './utils/app.routes';
+import { LoginComponent } from './component/login/login.component';
 
 const routes: Routes = [
+    { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },  // Start with login
+
   {
     path: '',
     component: DefaultLayoutComponent,
@@ -13,8 +17,8 @@ const routes: Routes = [
     },
     children: Object.values(APPLICATION_ROUTES)
 
-  },
-    {path: '**', redirectTo: ''}
+
+  }
 ];
 
 @NgModule({

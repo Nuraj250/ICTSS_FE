@@ -1,7 +1,6 @@
 import { FormGroup, AbstractControl } from "@angular/forms";
 import { map, Observable } from "rxjs";
 import Swal from "sweetalert2";
-import { Expence } from "../model/expence.model";
 import { HttpListResponse, HttpResponse } from "./http-response";
 
 
@@ -45,7 +44,7 @@ export function scrollTop(): void {
  * @param observable
  * @returns Promise<Array<T>>
  */
-export async function setHttpListResponse<T>(observable: Observable<HttpListResponse<Expence>>){
+export async function setHttpListResponse<T>(observable: Observable<HttpListResponse<any>>){
     return new Promise((resolve, reject) => {
 
         observable.pipe((map)(ob => {
@@ -74,7 +73,7 @@ export async function setHttpListResponse<T>(observable: Observable<HttpListResp
  * @param isDisplaySuccessNotifcation
  * @returns Promise<T>
  */
-export async function setHttResponse<T>(observable: Observable<HttpResponse<Expence>>, isDisplaySuccessNotifcation = true): Promise<any> {
+export async function setHttResponse<T>(observable: Observable<HttpResponse<any>>, isDisplaySuccessNotifcation = true): Promise<any> {
 
     let successMsg: any;
     let respStatus: string = '';

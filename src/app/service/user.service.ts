@@ -1,30 +1,37 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import { environment } from 'src/app/environments/environment';
-import { User } from '../model/User.model';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from '../model/User.model';  // Make sure the path is correct
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  private _currentUserSubject: BehaviorSubject<User | null>;  // Allow null in the subject
+  public currentUser: Observable<User | null>;  // Observable to watch user state changes
 
-  constructor(private http: HttpClient) {
+  constructor() {
+    const userData = localStorage.getItem('user');  // Get user from localStorage
+    const parsedUser = userData ? JSON.parse(userData) : null;  // Parse only if not null
+
+    this._currentUserSubject = new BehaviorSubject<User | null>(parsedUser);  // Initialize subject
+    this.currentUser = this._currentUserSubject.asObservable();  // Expose as observable
   }
 
-  public getUser(): Observable<any> {
-    return this.http.get(environment.baseUrl + '/getAll');
+  public get currentUserValue(): User | null {
+    return this._currentUserSubject.value;  // Return current user value
   }
 
-  public saveUser(user: User): Observable<any> {
-    return this.http.post(environment.baseUrl + '/save', user);
+  public get currentUserSubject(): BehaviorSubject<User | null> {
+    return this._currentUserSubject;  // Return the subject directly
   }
 
-  public updateUser(user: User): Observable<any> {
-    return this.http.put(environment.baseUrl + `/update/${user.id}`, user);
-  }
+  public loadUserData(): Promise<void> {
+    return new Promise<void>((resolve) => {
+      const userData = localStorage.getItem('user');
+      const parsedUser = userData ? JSON.parse(userData) : null;
 
-  public deleteUser(id: any): Observable<any> {
-    return this.http.delete(environment.baseUrl + `/deleteEmployee/${id}`);
+      this._currentUserSubject.next(parsedUser);  // Update subject with parsed user
+      resolve();
+    });
   }
 }
