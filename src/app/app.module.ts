@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +31,6 @@ import {
   ButtonGroupModule,
   ButtonModule,
   CardModule,
-  CollapseModule,
   DropdownModule,
   FooterModule,
   FormModule,
@@ -49,12 +48,10 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
-import { AddExpenceComponent } from './component/manage-expence/add-expence/add-expence.component';
-import { ViewExpenceComponent } from './component/manage-expence/view-expence/view-expence.component';
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AddUserComponent } from './component/manage-user/add-user/add-user.component';
 import { ViewUserComponent } from './component/manage-user/view-user/view-user.component';
@@ -66,6 +63,7 @@ import { LoginComponent } from './component/login/login.component';
 import { AddPlaygroundComponent } from './component/manage-playground/add-playground/add-playground.component';
 import { AddTeamComponent } from './component/manage-team/add-team/add-team.component';
 import { ViewTeamComponent } from './component/manage-team/view-team/view-team.component';
+import { PredictComponent } from './component/predict/predict.component';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -77,8 +75,6 @@ const APP_CONTAINERS = [
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
-    AddExpenceComponent,
-    ViewExpenceComponent,
     ConfirmationModelComponent,
     TablePaginationComponent,
     ValidationMessageComponent,
@@ -90,7 +86,8 @@ const APP_CONTAINERS = [
     AddPlayerComponent,
     LoginComponent,
     AddTeamComponent,
-    ViewTeamComponent
+    ViewTeamComponent,
+    PredictComponent
   ],
 
   imports: [
