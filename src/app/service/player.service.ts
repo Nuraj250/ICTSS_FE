@@ -13,18 +13,18 @@ export class PlayerService {
   }
 
   public getPlayer(): Observable<any> {
-    return this.http.get(environment.baseUrl + '/getAll');
+    return this.http.get(environment.apiUrl + '/getAll');
   }
 
   public savePlayer(player: Player): Observable<any> {
-    return this.http.post(environment.baseUrl + '/save', player);
+    return this.http.post(environment.apiUrl + '/save', player);
   }
 
   public updatePlayer(player: Player): Observable<any> {
-    return this.http.put(environment.baseUrl + `/update/${player.id}`, player);
+    return this.http.put(environment.apiUrl + `/update/${player.id}`, player);
   }
 
   public deletePlayer(id: any): Observable<any> {
-    return this.http.delete(environment.baseUrl + `/deleteEmployee/${id}`);
+    return this.http.delete(environment.apiUrl + `/deleteEmployee/${id}`);
   }
 }

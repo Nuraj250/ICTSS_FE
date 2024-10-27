@@ -6,6 +6,19 @@ import { User } from '../model/User.model';  // Make sure the path is correct
   providedIn: 'root',
 })
 export class UserService {
+  updateUser(updateduser: User): Observable<import("../utils/http-response").HttpResponse<any>> {
+    throw new Error('Method not implemented.');
+  }
+  saveUser(adduser: User): Observable<import("../utils/http-response").HttpResponse<any>> {
+    throw new Error('Method not implemented.');
+  }
+  getUser(): Observable<import("../utils/http-response").HttpListResponse<any>> {
+    throw new Error('Method not implemented.');
+  }
+  deleteUser(deleteselectedUser: any): Observable<import("../utils/http-response").HttpResponse<any>> {
+    throw new Error('Method not implemented.');
+  }
+  
   private _currentUserSubject: BehaviorSubject<User | null>;  // Allow null in the subject
   public currentUser: Observable<User | null>;  // Observable to watch user state changes
 

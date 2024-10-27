@@ -1,8 +1,33 @@
 <div class="login-container">
-    <form class="login-form">
-        <h2>Sign In</h2>
-        <input type="text" placeholder="username or email" required>
-        <input type="password" placeholder="password" required>
-        <button type="submit" (click)="btnLogIN">Sign In</button>
-    </form>
+    <form [formGroup]="loginForm" class="form">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>User name</mat-label>
+          <input
+            matInput
+            placeholder="Enter username"
+            formControlName="username"
+          />
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Enter password"
+            formControlName="password"
+            (keydown)="onKeydown($event)"
+
+          />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          class="submit-button"
+          [disabled]="loginForm.invalid"
+          (click)="btnLogIN()"
+        >
+          LOG IN
+        </button>
+      </form>
 </div>

@@ -13,18 +13,18 @@ export class TeamService {
   }
 
   public getTeam(): Observable<any> {
-    return this.http.get(environment.baseUrl + '/getAll');
+    return this.http.get(environment.apiUrl + '/getAll');
   }
 
   public saveTeam(team: Team): Observable<any> {
-    return this.http.post(environment.baseUrl + '/save', team);
+    return this.http.post(environment.apiUrl + '/save', team);
   }
 
   public updateTeam(team: Team): Observable<any> {
-    return this.http.put(environment.baseUrl + `/update/${team.id}`, team);
+    return this.http.put(environment.apiUrl + `/update/${team.id}`, team);
   }
 
   public deleteTeam(id: any): Observable<any> {
-    return this.http.delete(environment.baseUrl + `/deleteEmployee/${id}`);
+    return this.http.delete(environment.apiUrl + `/deleteEmployee/${id}`);
   }
 }
