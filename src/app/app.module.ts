@@ -8,7 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
@@ -64,6 +64,8 @@ import { AddPlaygroundComponent } from './component/manage-playground/add-playgr
 import { AddTeamComponent } from './component/manage-team/add-team/add-team.component';
 import { ViewTeamComponent } from './component/manage-team/view-team/view-team.component';
 import { PredictComponent } from './component/predict/predict.component';
+import { AuthGuard } from './common/auth.guard';
+import { JwtInterceptor } from './common/jwt.interceptor';  // JWT Interceptor
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -136,12 +138,10 @@ const APP_CONTAINERS = [
     TabsModule,
   ],
   providers: [
-    {
-      provide: LocationStrategy,
-      useClass: HashLocationStrategy
-    },
-    IconSetService,
-    Title
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },  // Register JWT Interceptor
+    AuthGuard,  // Register Auth Guard
+    Title,
   ],
   bootstrap: [AppComponent]
 })

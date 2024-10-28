@@ -1,4 +1,5 @@
 export const environment = {
-  baseUrl: 'http://localhost:4200/',
-  production: true
+  production: false,
+  environmentName: 'DEV',
+  apiUrl: 'http://localhost:8080/cairo'
 };

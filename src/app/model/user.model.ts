@@ -1,7 +1,6 @@
 export class User {
-    id :any;
-    name = '';
-    category = '';
-    amount = '';
-    date = '';
-}
+    id?: number;
+    name?: string;
+    email?: string;
+    token?: string;
+  }

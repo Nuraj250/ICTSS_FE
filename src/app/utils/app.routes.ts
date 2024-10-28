@@ -6,6 +6,8 @@ import { AddTeamComponent } from "../component/manage-team/add-team/add-team.com
 import { ViewTeamComponent } from "../component/manage-team/view-team/view-team.component";
 import { AddUserComponent } from "../component/manage-user/add-user/add-user.component";
 import { ViewUserComponent } from "../component/manage-user/view-user/view-user.component";
+import { AuthGuard } from '../common/auth.guard';  // Import AuthGuard
+
 
 // Application Routes of front end ===================
 export const APPLICATION_ROUTES = {
@@ -27,6 +29,7 @@ export const APPLICATION_ROUTES = {
     addUser: {
         path: 'addUser',
         component: AddUserComponent,
+        canActivate: [AuthGuard]
         // resolve:{
         //     expence:ExpenseResolver
         // }
