@@ -8,7 +8,7 @@ import { UserService } from "../service/user.service";
  * @param route Activated route details
  * @param state Router state
  */
-export const authGuard = async (
+export const AuthGuard = async (
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
 ) => {

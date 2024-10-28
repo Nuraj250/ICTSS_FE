@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   basicLogin(request: { username: string, password: string }) {
-    return this.httpService.sendHttp<any>("http://localhost:3000/user", HttpMethod.GET, null);
+    return this.httpService.sendHttp<any>("http://localhost:8080/api/ICTSS/user/login", HttpMethod.GET, null);
   }
 
   logout() {

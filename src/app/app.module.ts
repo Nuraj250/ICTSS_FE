@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,6 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
@@ -65,13 +66,18 @@ import { AddTeamComponent } from './component/manage-team/add-team/add-team.comp
 import { ViewTeamComponent } from './component/manage-team/view-team/view-team.component';
 import { PredictComponent } from './component/predict/predict.component';
 import { AuthGuard } from './common/auth.guard';
-import { JwtInterceptor } from './common/jwt.interceptor';  // JWT Interceptor
+import {ErrorInterceptor, JwtInterceptor} from "./common";
+import { UserService } from './service/user.service';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
   DefaultHeaderComponent,
   DefaultLayoutComponent
 ];
+
+export function initializeApp(userService: UserService): any {
+  return (): Promise<void> => userService.loadUserData();
+}
 
 @NgModule({
   declarations: [
@@ -130,6 +136,7 @@ const APP_CONTAINERS = [
     MatDividerModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
     SpinnerModule,
     PaginationModule,
     MatCheckboxModule,
@@ -138,10 +145,13 @@ const APP_CONTAINERS = [
     TabsModule,
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },  // Register JWT Interceptor
-    AuthGuard,  // Register Auth Guard
-    Title,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [UserService], multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

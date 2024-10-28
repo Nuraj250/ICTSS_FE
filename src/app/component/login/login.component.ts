@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
 
   // Mark the function as async to use await properly
   public async btnLogIN() {
-    this.authenticationService.basicLogin(this.loginForm!.value).pipe(first()).subscribe({
+    console.log(this.loginForm.value);
+    this.authenticationService.basicLogin(this.loginForm.value).pipe(first()).subscribe({
       next: data => {
         this.authenticationService.setUser(data);
         this.router.navigateByUrl('', {replaceUrl: true, state: {isLogin: true}});
@@ -47,4 +48,19 @@ export class LoginComponent implements OnInit {
     });
     
   }
+
+    /**
+   * When press ENTER key trigger login
+   *
+   * @param event Get pressed key from password field
+   */
+    onKeydown(event: { key: string; }) {
+      if (event.key === 'Enter') {
+        if (this.loginForm.valid) {
+          this.btnLogIN();
+        } else {
+          this.messageService.error('LOGIN_FAILED', 'LOGIN_INCOMPLETE');
+        }
+      }
+    }
 }

@@ -13,18 +13,18 @@ export class PlayGroundService {
   }
 
   public getPlayGround(): Observable<any> {
-    return this.http.get(environment.baseUrl + '/getAll');
+    return this.http.get(environment.apiUrl + '/getAll');
   }
 
   public savePlayGround(playGround: PlayGround): Observable<any> {
-    return this.http.post(environment.baseUrl + '/save', playGround);
+    return this.http.post(environment.apiUrl + '/save', playGround);
   }
 
   public updatePlayGround(playGround: PlayGround): Observable<any> {
-    return this.http.put(environment.baseUrl + `/update/${playGround.id}`, playGround);
+    return this.http.put(environment.apiUrl + `/update/${playGround.id}`, playGround);
   }
 
   public deletePlayGround(id: any): Observable<any> {
-    return this.http.delete(environment.baseUrl + `/deleteEmployee/${id}`);
+    return this.http.delete(environment.apiUrl + `/deleteEmployee/${id}`);
   }
 }
